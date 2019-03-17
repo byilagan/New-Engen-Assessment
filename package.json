@@ -6,8 +6,9 @@
   "license": "MIT",
   "scripts": {
     "tsc": "tsc", 
-    "start": "yarn tsc && node build/server.js", 
-    "build": "yarn tsc && node build/server.js"
+    "postinstall":"yarn tsc",
+    "start":"node build/server.js",
+    "dev": "yarn tsc && node build/server.js"
   },
   "dependencies": {
     "express": "^4.16.4"
