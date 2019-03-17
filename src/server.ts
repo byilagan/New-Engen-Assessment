@@ -1,11 +1,20 @@
-import express = require('express');
+import express from 'express';
+import path from 'path';
 
 const app: express.Application = express();
+const port = process.env.PORT || 3000;
 
-app.get('/', function (req, res) {
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('/api', function (req, res) {
   res.send('Hello World!');
 });
 
-app.listen(3000, function () {
-  console.log('Server listening on port 3000...');
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  });
+  
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`); 
 });
