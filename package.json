@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "compile": "yarn tsc && node build/server.js",
     "postinstall": "yarn tsc",
-    "start": "yarn tsc && node build/server.js",
+    "start": "node build/server.js",
     "heroku-postbuild": "cd client && yarn && yarn build",
     "dev": "nodemon -e ts --exec \" yarn compile \""
   },
