@@ -5,16 +5,19 @@
   "repository": "git@github.com:byilagan/New-Engen-Assessment.git",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc", 
-    "postinstall":"yarn tsc",
-    "start":"node build/server.js",
-    "dev": "yarn tsc && node build/server.js"
+    "tsc": "tsc",
+    "compile": "yarn tsc && node build/server.js",
+    "postinstall": "yarn tsc",
+    "start": "yarn tsc && node build/server.js",
+    "heroku-postbuild": "cd client && yarn && yarn build",
+    "dev": "nodemon -e ts --exec \" yarn compile \""
   },
   "dependencies": {
     "express": "^4.16.4"
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "nodemon": "^1.18.10",
     "typescript": "^3.3.3333"
   }
 }

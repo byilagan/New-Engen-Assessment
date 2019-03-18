@@ -1,10 +1,19 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require("express");
-var app = express();
-app.get('/', function (req, res) {
+const express_1 = __importDefault(require("express"));
+const path_1 = __importDefault(require("path"));
+const app = express_1.default();
+const port = process.env.PORT || 5000;
+app.use(express_1.default.static(path_1.default.join(__dirname, '../client/build')));
+app.get('/api', function (req, res) {
     res.send('Hello World!');
 });
-app.listen(3000, function () {
-    console.log('Server listening on port 3000...');
+app.get('*', (req, res) => {
+    res.sendFile(path_1.default.join(__dirname + '../client/build/index.html'));
+});
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
