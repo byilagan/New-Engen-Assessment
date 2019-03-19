@@ -19,3 +19,9 @@
   list-style: none; 
   padding: 20px;
 }
+#sidebar > ul li {
+  margin: 8px 0px;
+}
+#sidebar > ul li a {
+  font-size: 18px;
+}
