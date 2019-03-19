@@ -1,0 +1,21 @@
+/* SIDEBAR STYLES */ 
+#sidebar {
+  background-color: #D6D8D8; 
+  box-shadow: 0px 0px 15px -2px #262626;
+}
+#sidebar > div {
+  border-radius: 5px; 
+  height: 40px; 
+  width: 165px; 
+  background-color: #FCFCFC; 
+  border: solid 1px gray; 
+  display: grid; 
+  justify-items: center; 
+  align-items: center;
+  margin: auto; 
+  margin-top: 50px;
+}
+#sidebar > ul {
+  list-style: none; 
+  padding: 20px;
+}
