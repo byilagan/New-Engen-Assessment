@@ -14,7 +14,14 @@ class ColorController {
             if (colors.length === 0) {
                 console.log("DB is empty...")
 
-                var colorList = randomColor({count: NUM_COLORS}); 
+                var colorList = [] as any[]; 
+                while(colorList.length !== NUM_COLORS) {
+                    var randColor = randomColor({hue: "random"});
+
+                    if (!colorList.includes(randColor[0])) {
+                        colorList.push(randColor);
+                    }
+                }
 
                 console.log(`Filling DB with ${NUM_COLORS} colors`)
 

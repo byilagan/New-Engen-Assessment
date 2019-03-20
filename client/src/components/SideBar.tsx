@@ -1,11 +1,20 @@
 import * as React from 'react'; 
+import { Redirect, withRouter} from 'react-router';
 
-class SideBar extends React.Component {
+class SideBar extends React.Component<any, any> {
+
+    public handleClick = () => {
+        console.log(this.props.randomColor)
+
+        var colorId = this.props.randomColor()['_id'];
+
+        this.props.history.push(`/${colorId}`);
+    }
 
     public render () {
         return (
             <div id="sidebar">
-                <div><b>Random Color</b></div>
+                <div onClick={this.handleClick} className="button"><b>Random Color</b></div>
                 <ul>
                     <li><a>Red</a></li>
                     <li><a>Orange</a></li>
@@ -21,4 +30,4 @@ class SideBar extends React.Component {
     }
 }
 
-export default SideBar;
+export default withRouter(SideBar);
