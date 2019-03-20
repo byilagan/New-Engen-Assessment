@@ -41,7 +41,7 @@ class ColorView extends React.Component<any, any> {
         })
     }
 
-    public componentDidMount = () => this.updateView(this.props.match.params.id)
+    public componentWillMount = () => this.updateView(this.props.match.params.id)
 
     public componentWillReceiveProps = (nextProps: any) => {
         if(this.props.match.params.id !== nextProps.match.params.id) {

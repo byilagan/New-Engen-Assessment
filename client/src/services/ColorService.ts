@@ -17,7 +17,7 @@ export default class ColorService {
     }
 
     public getColor(id: String): Promise<Response> {
-        return fetch("/api/" + id, {
+        return fetch(`/api/${id}`, {
             method: "GET",
             headers: {
                 "content-type": "application/json", 
