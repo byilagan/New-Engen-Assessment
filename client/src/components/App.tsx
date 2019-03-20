@@ -20,7 +20,9 @@ class App extends React.Component {
   public componentWillMount = () => {
     colorService.getAllColors()
     .then(res => {
-      return this.setState({colors: res});
+      return this.setState({
+        colors: res
+      });
     })
     .catch(err => {
       console.log(err); 
@@ -34,12 +36,12 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div style={{display: "grid", gridTemplateRows: "65px auto", height: "100%", width: "100%"}}>
+        <div id="mainPage">
           <SearchBar/> 
-          <div style={{display: "grid", gridTemplateColumns: "200px auto"}}>
+          <div id="colorViewer">
             <SideBar randomColor={this.randomColor}/> 
               <Switch>
-                <Route path="/" exact={true} component={() => <ColorList colorList={this.state.colors}/> }/>
+                <Route path="/" exact={true} component={() => <ColorList  colorList={this.state.colors}/> }/>
                 <Route path="/:id" component={() => <ColorView randomColor={this.randomColor}/> }/>
               </Switch>
           </div>

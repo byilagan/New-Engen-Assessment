@@ -13,7 +13,7 @@ class SideBar extends React.Component<any, any> {
 
     public render () {
         return (
-            <div id="sidebar">
+            <div id="sideBar">
                 <div onClick={this.handleClick} className="button"><b>Random Color</b></div>
                 <ul>
                     <li><a>Red</a></li>

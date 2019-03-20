@@ -20,7 +20,7 @@ class ColorView extends React.Component<any, any> {
         while (colorArray.length !== NUM_SUGGESTED_COLORS) {
             var newColor = this.props.randomColor()
 
-            if (!colorArray.includes(newColor) && newColor['colorCode'] !== this.state.currColor.colorCode) {
+            if (!colorArray.includes(newColor) && newColor['colorCode'] != this.state.currColor.colorCode) {
                 colorArray.push(newColor);
             }
         }
@@ -52,16 +52,16 @@ class ColorView extends React.Component<any, any> {
     public render() {
         return (
             <div className="scroll" id="colorView">
-                <div>
-                    <div style={{backgroundColor: `${this.state.currColor.colorCode}`}}/>
+                <div className="color-item">
+                    <div className="top-border-radius" style={{backgroundColor: `${this.state.currColor.colorCode}`}}/>
                     <h4>{this.state.currColor.colorCode}</h4>
                 </div>
-                <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", justifyItems: "center", gridRowGap: 20, marginBottom: 20}}>
+                <div>
                     {this.state.suggestedColors.map((color: any) =>
                         <Link to={`/${color._id}`}>
-                            <div style={{height: 120, width: 120, display: "grid", gridTemplateRows: "65% auto", borderRadius: 5, boxShadow: "0px 0px 10px -1px #888888", padding: 1}}>
-                                <div style={{backgroundColor: `${color.colorCode}`, borderRadius: "5px 5px 0px 0px"}}/>
-                                <h4 style={{fontSize: 16, margin: "8px 15px"}}>{color.colorCode}</h4>
+                            <div className="color-item">
+                                <div className="top-border-radius" style={{backgroundColor: `${color.colorCode}`}}/>
+                                <h4>{color.colorCode}</h4>
                             </div>
                         </Link>
                     )}
